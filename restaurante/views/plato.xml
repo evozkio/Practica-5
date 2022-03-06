@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!--windowaction-->
+    <!--The following tag is an action definition for a "window action",
+        that is an action opening a view or a set of views-->
+    <record model="ir.actions.act_window" id="plato_list_action">
+        <field name="name">Platos</field>
+        <field name="res_model">restaurante.plato</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Crearelprimerplato</p>
+        </field>
+    </record>
+
+    <!--top level menu:no parent-->
+    <menuitem id="main_restaurante_menu" name="Restaurante"/>
+    <!--A first level in the left side menu is needed before using action = attribute-->
+    <menuitem id="restaurante_menu" name="Restaurante" parent="main_restaurante_menu"/>
+    <!--the following menu item should appear *after* its parent restaurante_menuand *after* its action plato_list_action-->
+    <menuitem id="platos_menu" name="Platos" parent="restaurante_menu" action="plato_list_action"/>
+    <!--Full id location:action= "restaurante.plato_list_action" It is not required when it is the same module-->
+
+</odoo>
